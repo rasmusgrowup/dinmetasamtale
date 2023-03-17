@@ -15,7 +15,7 @@ const blocks = [
     },
     {
         type: 'text',
-        heading: 'Når du gør mindre virker det mere',
+        heading: 'Når du gør mindre, virker det mere',
         backgroundColor: 'light',
         text: [
             'Når vi bruger lang tid på negative tanker og følelser, bekymringer, grublerier, og uhensigtsmæssige strategier, kan det naturligvis påvirke vores humør og have en indflydelse på vores mentale trivsel. \n \n',
