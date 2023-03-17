@@ -1,0 +1,31 @@
+@import "core";
+
+.light,
+.dark {
+  border: none;
+  border-radius: 18px;
+  font-size: 12px;
+  height: 36px;
+  padding: 0.75em 1.5em;
+  text-transform: uppercase;
+}
+
+.dark {
+  background-color: var(--color-brown);
+  color: var(--color-light);
+
+  &:hover {
+    background-color: rgba(var(--color-brown-rgb), 0.8);
+    cursor: pointer;
+  }
+}
+
+.light {
+  background-color: var(--color-light);
+  color: var(--color-brown);
+
+  &:hover {
+    background-color: rgba(var(--color-light-rgb), 0.8);
+    cursor: pointer;
+  }
+}

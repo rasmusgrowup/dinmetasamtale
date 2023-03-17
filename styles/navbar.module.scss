@@ -1,0 +1,39 @@
+@import "core";
+
+.nav {
+  color: var(--color-brown);
+  padding: 1rem;
+}
+
+.inner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
+}
+
+.menuContainer {
+  align-items: center;
+  display: flex;
+
+  .iconLink, svg {
+    line-height: 1;
+    height: 1.25em;
+    //width: 1.25em;
+  }
+
+  .iconLink:first-of-type {
+    border-left: 1px solid var(--color-brown);
+    padding-left: 1rem;
+  }
+
+  svg, .navItem {
+    margin-right: 1rem;
+
+    &:hover {
+      color: rgba(var(--color-brown-rgb), 0.8);
+    }
+  }
+}

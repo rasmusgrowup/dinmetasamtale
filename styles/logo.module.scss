@@ -1,0 +1,26 @@
+@import "core";
+
+.logo {
+  cursor: pointer;
+  display: flex;
+  font-weight: 500;
+  line-height: 1;
+
+  svg {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .title {
+    align-items: baseline;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25em;
+    justify-content: space-between;
+    margin-left: 0.25rem;
+
+    p {
+      line-height: 1;
+    }
+  }
+}

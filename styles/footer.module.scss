@@ -1,0 +1,32 @@
+@import "core";
+
+.footer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 5rem;
+  padding-top: 5rem;
+  text-align: center;
+  width: 100%;
+}
+
+.address {
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+
+  a {
+    display: block;
+  }
+}
+
+.imageContainer {
+  display: block;
+  margin-top: 2rem;
+  max-width: 200px;
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
