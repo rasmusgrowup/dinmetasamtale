@@ -19,9 +19,9 @@ function TextContent({ props }) {
     )
 }
 
-function ImageContainer({ props }) {
+function ImageContainer({ props, left }) {
     return (
-        <div className={styles.imageContainer} style={ props.image.rounded ? { borderRadius: `${props.image.width / 2}px` } : null}>
+        <div className={ left === 'true' ? `${styles.imageContainer} ${styles.imageOnLeft}` : `${styles.imageContainer}`} style={ props.image.rounded ? { borderRadius: `${props.image.width / 2}px` } : null}>
             <Image
                 src={props.image.src}
                 alt={props.image.alt}
@@ -51,14 +51,14 @@ export default function Text({ props, index }) {
                     props.align === 'left' && props.image ?
                     <>
                         <TextContent props={props} />
-                        <ImageContainer props={props} />
+                        <ImageContainer props={props}/>
                     </> :
                     props.align === 'right' && props.image ?
                     <>
-                        <ImageContainer props={props} />
+                        <ImageContainer props={props} left='true'/>
                         <TextContent props={props} />
                     </> :
-                    <TextContent props={props} />
+                    <TextContent props={props}/>
                 }
             </div>
         </section>

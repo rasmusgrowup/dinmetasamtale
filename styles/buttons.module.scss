@@ -8,6 +8,12 @@
   height: 36px;
   padding: 0.75em 1.5em;
   text-transform: uppercase;
+
+  @media (max-width: $m) {
+    border-radius: 21px;
+    font-weight: 500;
+    height: 42px;
+  }
 }
 
 .dark {
@@ -28,4 +34,8 @@
     background-color: rgba(var(--color-light-rgb), 0.8);
     cursor: pointer;
   }
+}
+
+.fullWidth {
+  width: 100%;
 }
