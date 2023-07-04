@@ -1,11 +1,18 @@
 import styles from '@/styles/buttons.module.scss'
+import {useRouter} from "next/router";
 
-export default function Button({ func, text, color, fullWidth }) {
+export default function Button({link, text, color, fullWidth}) {
+    const router = useRouter();
+
+    function onClick() {
+        router.push(`${link}`)
+    }
+
     return (
         <button
-            onClick={func}
+            onClick={onClick}
             className={`
-                ${color === 'brown' ? `${styles.light}` : `${styles.dark}`}
+                ${color === 'Dark' ? `${styles.light}` : `${styles.dark}`}
                 ${fullWidth === 'true' ? `${styles.fullWidth}` : undefined}
             `}
         >

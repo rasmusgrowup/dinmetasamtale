@@ -1,28 +1,45 @@
-import Logo from "@/components/Logo/Logo";
 import styles from '@/styles/footer.module.scss'
-import Link from "next/link";
 import {useRouter} from "next/router";
-import Menu from "@/components/Navbar/Menu";
 import Image from "next/image";
-import MCT from '@/public/mct-i-logo.png'
+import Menu from "@/components/Header/Menu";
+import Button from "@/components/Button";
+import NavItem from "@/components/Header/NavItem";
 
-export default function Footer() {
+export default function Footer({footer}) {
     const router = useRouter();
+
     function onClick() {
         router.push('/')
     }
 
     return (
         <footer className={styles.footer}>
-            <Logo />
-            <div className={styles.address}>
-                <div>Malmøgade 10, 5000 Odense C</div>
-                <Link href='mailto:kontakt@dinmetasamtale.dk'>kontakt@dinmetasamtale.dk</Link>
-                <Link href='tel:+4530703048'>+45 30 70 30 48</Link>
+            <div className={styles.logoContainer}>
+                <Image
+                    src={footer.logo.image.url}
+                    alt={footer.logo.altText}
+                    width={footer.logo.image.width}
+                    height={footer.logo.image.height}
+                />
             </div>
-            <Menu />
+            <div className={styles.address}>
+                <div dangerouslySetInnerHTML={{__html: footer.contactInfo.html}}/>
+            </div>
+            <div className={styles.menu}>
+                { footer.nav.navItems && footer.nav.navItems.map((item, i) => (
+                    item.__typename === 'NavItem' && <NavItem key={i} href={item.page.slug === 'home' ? '/' : item.page.slug} text={item.text}/>
+                ))}
+            </div>
             <div className={styles.imageContainer}>
-                <Image src={MCT} alt='MCT logo' />
+                {footer.images.map((image) => (
+                    <Image
+                        key={image.id}
+                        src={image.image.url}
+                        height={image.image.height}
+                        width={image.image.width}
+                        alt={image.altText}
+                    />
+                ))}
             </div>
         </footer>
     )

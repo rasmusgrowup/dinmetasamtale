@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from '@/styles/navbar.module.scss'
+import styles from '@/styles/header.module.scss'
 
 export default function NavItem({ href, text}) {
     return (

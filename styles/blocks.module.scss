@@ -61,8 +61,9 @@
   }
 }
 
-// Text block styling
-.text {
+// Section block styling
+.text,
+.section {
   padding-bottom: 4rem;
   padding-top: 4rem;
   width: 100%;
@@ -72,20 +73,26 @@
   }
 }
 
-.text .inner {
+.text .inner,
+.section .inner {
   align-items: center;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 900px;
+  max-width: $l;
   width: 100%;
 
   @media (max-width: $m) {
     display: initial;
   }
+
+  .col {
+    flex: 1;
+  }
 }
 
-.text .textContainer {
+.text .textContainer,
+.section .textContainer {
   //margin: 0 3rem;
 
   p {
@@ -111,7 +118,8 @@
   }
 }
 
-.text .imageContainer {
+.text .imageContainer,
+.section .imageContainer {
   max-width: 360px;
   overflow: hidden;
   position: relative;
@@ -185,14 +193,18 @@
 
 // Testimonial block styling
 .testimonial {
-  padding-bottom: 4rem;
-  padding-top: 4rem;
+  padding: 4rem 2rem;
+  text-align: center;
   width: 100%;
 }
 
-.testimonialContainer {
-  color: var(--color-light);
+.slider {
   margin: 0 auto;
+  max-width: $l;
+}
+
+.testimonialContainer {
+  margin: 0 auto 1rem;
   max-width: 720px;
   text-align: center;
 
@@ -203,6 +215,14 @@
   .name {
     margin-top: 1rem;
   }
+}
+
+.light button::before {
+  color: var(--color-brown);
+}
+
+.dark button::before {
+  color: var(--color-light);
 }
 
 // Staff Block styling
@@ -249,6 +269,19 @@
   }
 }
 
+// Banner Styling
+.banner {
+  color: var(--color-light);
+  padding-bottom: 4rem;
+  padding-top: 4rem;
+  text-align: center;
+}
+
+.bannerText {
+  font-size: 30px;
+  margin-bottom: 1rem;
+}
+
 // General Styling
 .topElement {
   padding-top: 2rem;
@@ -261,4 +294,16 @@
 
 .lightFont {
   color: var(--color-light)
+}
+
+// Map Styling
+.map {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.mapContainer {
+  height: $s;
+  margin: 0 auto;
+  max-width: $l;
 }

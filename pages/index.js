@@ -1,4 +1,7 @@
-import BlockRenderer from "@/components/Blocks/BlockRenderer";
+import {getPage} from "../lib/hygraph";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer";
+import SectionRenderer from "@/components/Sections/SectionRenderer";
 
 const blocks = [
     {
@@ -60,20 +63,31 @@ const blocks = [
         heading: 'Vores klienter udtaler',
         backgroundColor: 'brown',
         text: {
-            text:   'Når vi bruger lang tid på negative tanker og følelser, ' +
-                    'bekymringer, grublerier, og uhensigtsmæssige strategier, ' +
-                    'kan det naturligvis påvirke vores humør og have en indflydelse ' +
-                    'på vores mentale trivsel.',
-            name:   'Maria',
-            age:    '31'
+            text: 'Når vi bruger lang tid på negative tanker og følelser, ' +
+                'bekymringer, grublerier, og uhensigtsmæssige strategier, ' +
+                'kan det naturligvis påvirke vores humør og have en indflydelse ' +
+                'på vores mentale trivsel.',
+            name: 'Maria',
+            age: '31'
         }
     }
 ]
 
-export default function Home() {
-  return (
-    <>
-        <BlockRenderer blocks={blocks} />
-    </>
-  )
+export default function Home({page}) {
+    return (
+        <>
+            {page.header && <Header header={page.header}/>}
+            {page.sections && <SectionRenderer sections={page.sections}/>}
+            {page.footer && <Footer footer={page.footer}/>}
+        </>
+    )
+}
+
+export async function getStaticProps() {
+    const page = await getPage("home")
+    return {
+        props: {
+            page
+        },
+    }
 }

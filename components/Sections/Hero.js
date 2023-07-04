@@ -1,31 +1,19 @@
 import styles from '@/styles/blocks.module.scss'
 import Button from "@/components/Button";
-import { useRouter} from "next/router";
 import Image from "next/image";
 
 function Content({ props }) {
-    const router = useRouter();
-    function onClick() {
-        router.push(`${props.btnUrl}`)
-    }
-
     return (
         <div
             className={styles.heroContent}
-            style={props.backgroundColor === 'brown'
+            style={props.colorTheme === 'Dark'
                         ? {backgroundColor: 'var(--color-brown)'}
                         : {backgroundColor: 'var(--color-earth)'}
                   }
         >
-            <h1 className={styles.heading}>{props.heading}</h1>
-            { props.text &&
-                <div className={ props.columns ? `${styles.columns}` : undefined}>
-                    { props.text.map((t, i) => (
-                        <p key={i}>{t}</p>
-                    ))}
-                </div>
-            }
-            { props.btn && <Button func={onClick} color={props.backgroundColor} text={props.btn} />}
+            <h1 className={styles.heading}>{props.title}</h1>
+            { props.text && <p>{props.text}</p>}
+            { props.button && <Button link={props.button.link} color={props.colorTheme} text={props.button.text} />}
         </div>
     )
 }
@@ -33,15 +21,22 @@ function Content({ props }) {
 function ImageContainer({ props }) {
     return (
         <div className={styles.imgContainer}>
-            <Image src={props.src} alt={props.alt} fill />
+            <Image
+                src={props.image.url}
+                alt={props.altText}
+                sizes="(max-width: 840px) 100vw, (max-width: 1200px) 50vw"
+                fill
+                priority
+            />
         </div>
     )
 }
 
 export default function Hero({ props }) {
+    console.log(props.alignment)
     return (
         <section className={styles.hero}>
-            { props.align === 'right'
+            { props.alignment
                 ?
                 <>
                     <ImageContainer props={props.image}/>

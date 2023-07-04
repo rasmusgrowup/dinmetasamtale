@@ -1,27 +1,28 @@
 @import "core";
 
 .nav {
+  background-color: var(--color-earth);
   color: var(--color-brown);
   height: 100px;
   padding: 1rem;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
 
   @media (max-width: $m) {
-    background-color: var(--color-earth);
-    left: 0;
     padding: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 99;
   }
 }
 
 .inner {
   align-items: center;
   display: flex;
+  height: 100%;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 900px;
+  max-width: $l;
   width: 100%;
 
   @media (max-width: $m) {
@@ -33,9 +34,20 @@
   }
 }
 
+.logoContainer {
+  width: 10rem;
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+
 .menuContainer {
   align-items: center;
   display: flex;
+  justify-content: flex-end;
+  width: 100%;
 
   .links {
     display: flex;
