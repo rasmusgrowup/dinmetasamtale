@@ -33,7 +33,7 @@ function ImageContainer({ props }) {
 }
 
 export default function Hero({ props }) {
-    console.log(props.alignment)
+
     return (
         <section className={styles.hero}>
             { props.alignment

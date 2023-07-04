@@ -1,20 +1,11 @@
 import Header from "@/components/Header/Header";
 import SectionRenderer from "@/components/Sections/SectionRenderer";
 import Footer from "@/components/Footer";
-import {getPage, getAllSlugs} from "../lib/hygraph";
-
-export default function Slug({ page }) {
-    return (
-        <>
-            {page.header && <Header header={page.header}/>}
-            {page.sections && <SectionRenderer sections={page.sections}/>}
-            {page.footer && <Footer footer={page.footer}/>}
-        </>
-    )
-}
+import {getPage, getAllSlugs} from "@/lib/hygraph";
 
 export async function getStaticProps({ params }) {
     const page = await getPage(params.slug)
+
     return {
         props: {
             page
@@ -30,4 +21,14 @@ export async function getStaticPaths() {
         })),
         fallback: true,
     }
+}
+
+export default function Slug({ page }) {
+    return (
+        <>
+            {page && <Header header={page.header}/>}
+            {page && <SectionRenderer sections={page.sections}/>}
+            {page && <Footer footer={page.footer}/>}
+        </>
+    )
 }

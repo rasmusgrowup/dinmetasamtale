@@ -13,15 +13,15 @@ export default function Header({header}) {
     return (
         <nav className={styles.nav}>
             <div className={styles.inner}>
-                <div className={styles.logoContainer} onClick={() => toHomePage()} style={{ cursor: 'pointer' }}>
+                { header.logo && <div className={styles.logoContainer} onClick={() => toHomePage()} style={{ cursor: 'pointer' }}>
                     <Image
                         src={header.logo.image.url}
                         alt={header.logo.altText}
                         width={header.logo.image.width}
                         height={header.logo.image.height}
                     />
-                </div>
-                <Menu nav={header.nav}/>
+                </div> }
+                { header.nav && <Menu nav={header.nav}/>}
             </div>
         </nav>
     )

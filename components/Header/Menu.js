@@ -20,7 +20,8 @@ function NavItems({items, fullWidth}) {
             {items && items.map((item, i) => {
                 switch (item.__typename) {
                 case 'Button': return <Button key={i} link={item.link} text={item.text} color='Light' fullWidth={fullWidth}/>
-                case 'NavItem': default: return <NavItem key={i} href={item.page.slug === 'home' ? '/' : item.page.slug} text={item.text}/>
+                case 'NavItem': return <NavItem key={i} href={item.page.slug === 'home' ? '/' : item.page.slug} text={item.text}/>
+                default: return <div>Error</div>
             }})}
 </>
 )
